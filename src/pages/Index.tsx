@@ -10,7 +10,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { Helmet } from "react-helmet";
 
 const Index = () => {
-  const [showSortingHat, setShowSortingHat] = useState(false);
+  const [showSortingDog, setShowSortingDog] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Set isLoaded to true after initial render to trigger animations
@@ -66,10 +66,10 @@ const Index = () => {
                   <Button
                     size="lg"
                     className={`${HOUSES_ARRAY[0].color} ${HOUSES_ARRAY[0].hoverColor} text-white text-lg rounded-full px-8 w-full sm:w-auto`}
-                    onClick={() => setShowSortingHat(true)}
-                    aria-label="Open the sorting hat dialog"
+                    onClick={() => setShowSortingDog(true)}
+                    aria-label="Open the sorting dog dialog"
                   >
-                    Try the Sorting Hat!
+                    Try the Sorting Dog!
                   </Button>
                   <Button
                     variant="outline"
@@ -86,21 +86,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Sorting Hat Dialog */}
+        {/* Sorting Dog Dialog */}
         <Dialog 
-          open={showSortingHat} 
-          onOpenChange={setShowSortingHat}
-          aria-labelledby="sorting-hat-title"
-          aria-describedby="sorting-hat-description"
+          open={showSortingDog} 
+          onOpenChange={setShowSortingDog}
+          aria-labelledby="sorting-dog-title"
+          aria-describedby="sorting-dog-description"
         >
           <DialogContent className="sm:max-w-md rounded-3xl border-4 border-[#4B3B72]">
             <DialogHeader>
-              <DialogTitle id="sorting-hat-title" className="text-[#4B3B72] text-2xl">The Glencraig Sorting Hat</DialogTitle>
-              <DialogDescription id="sorting-hat-description" className="text-[#6A5E80]">
-                Let our magical sorting hat assign you to one of our school houses!
+              <DialogTitle id="sorting-dog-title" className="text-[#4B3B72] text-2xl">The Glencraig Sorting Dog</DialogTitle>
+              <DialogDescription id="sorting-dog-description" className="text-[#6A5E80]">
+                Let our magical sorting dog assign you to one of our school houses!
               </DialogDescription>
             </DialogHeader>
-            <HouseAssignment onClose={() => setShowSortingHat(false)} />
+            <HouseAssignment onClose={() => setShowSortingDog(false)} />
           </DialogContent>
         </Dialog>
 

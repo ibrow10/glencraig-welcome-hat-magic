@@ -79,23 +79,23 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
         {!sorting && !sorted ? (
           <>
             <img 
-              src="https://images.unsplash.com/photo-1537815749002-de6a533c64db?auto=format&fit=crop&w=300&h=300" 
-              alt="Sorting Hat - A magical hat that will assign you to a school house" 
+              src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&h=300" 
+              alt="Sorting Dog - A magical dog that will assign you to a school house" 
               className="w-32 h-32 object-cover mb-6 rounded-full animate-bounce border-4 border-[#4B3B72]"
               loading="lazy"
             />
-            <p className="mb-6 text-[#4B3B72]">Put on the sorting hat to find out which house you'll be joining at Glencraig Primary School!</p>
+            <p className="mb-6 text-[#4B3B72]">Meet our sorting dog to find out which house you'll be joining at Glencraig Primary School!</p>
             <Button 
               onClick={startSorting} 
               className={`${HOUSES_ARRAY[0].color} ${HOUSES_ARRAY[0].hoverColor} text-white rounded-full px-6`}
               aria-label="Start the house sorting process"
             >
-              Put on the Sorting Hat
+              Try the Sorting Dog
             </Button>
           </>
         ) : sorting ? (
           <>
-            <div className="text-2xl font-bold mb-4 text-[#4B3B72]" aria-live="polite">The hat is thinking...</div>
+            <div className="text-2xl font-bold mb-4 text-[#4B3B72]" aria-live="polite">The dog is thinking...</div>
             <div 
               className="w-32 h-32 rounded-full bg-gray-300 animate-pulse mb-6 flex items-center justify-center border-4 border-[#4B3B72]"
               role="status"
@@ -105,7 +105,7 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
                 <div className={`w-24 h-24 rounded-full ${selectedHouse.color} animate-pulse`}></div>
               )}
             </div>
-            <p className="text-lg italic text-[#6A5E80]">"Hmm, interesting... where to put you..."</p>
+            <p className="text-lg italic text-[#6A5E80]">"Woof! Hmm, interesting... where to put you..."</p>
           </>
         ) : (
           <>
@@ -131,7 +131,7 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
                 variant="outline" 
                 onClick={startSorting} 
                 className="rounded-full border-2 border-[#4B3B72] text-[#4B3B72]"
-                aria-label="Try the sorting hat again"
+                aria-label="Try the sorting dog again"
               >
                 Try Again
               </Button>

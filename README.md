@@ -8,7 +8,7 @@ This project is an interactive welcome guide for Glencraig Primary School, desig
 
 ## Features
 
-- **Interactive Sorting Hat**: A fun feature inspired by Harry Potter that assigns new students to one of four school houses (Eagles, Falcons, Hawks, or Owls)
+- **Interactive Sorting Dog**: A fun feature that uses a magical dog to assign new students to one of four school houses (Eagles, Falcons, Hawks, or Owls)
 - **School Information**: Key details about classes, friends, houses, and activities at the school
 - **Student Testimonials**: Real quotes from Year 6 students about their experiences
 - **Responsive Design**: Works well on all devices from mobile phones to desktop computers
