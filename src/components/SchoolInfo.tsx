@@ -13,13 +13,13 @@ interface InfoCard {
 
 const infoCards: InfoCard[] = [
   {
-    title: "Our Classes",
+    title: "Our School",
     icon: <BookOpen className="h-10 w-10" />,
     iconColor: HOUSES.Eagles.color,
     description: "We have small classes with friendly teachers who make learning fun! Every classroom has a reading corner and lots of art on the walls.",
   },
   {
-    title: "Our Friends",
+    title: "Our Buddies",
     icon: <Users className="h-10 w-10" />,
     iconColor: HOUSES.Falcons.color,
     description: "Everyone is kind and welcoming at Glencraig. The older students help the younger ones, and we have a buddy system for new starters.",

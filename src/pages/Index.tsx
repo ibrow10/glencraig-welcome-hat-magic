@@ -57,7 +57,7 @@ const Index = () => {
                   className={`text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-[#6A5E80] max-w-3xl mx-auto ${isLoaded ? 'animate-fade-in' : ''}`} 
                   style={{ animationDelay: "0.2s" }}
                 >
-                  A special welcome guide from our Year 6 leavers to help you start your exciting journey with us!
+                  A special welcome guide from our P7 leavers to help you start your exciting journey with us!
                 </p>
                 <div 
                   className={`flex flex-col sm:flex-row justify-center items-center gap-4 ${isLoaded ? 'animate-fade-in' : ''}`} 
@@ -131,7 +131,7 @@ const Index = () => {
               id="testimonials-heading"
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-[#4B3B72]"
             >
-              What Year 6 Students Say
+              What P7 Students Say
             </h2>
             <StudentTestimonials />
           </div>
@@ -144,8 +144,9 @@ const Index = () => {
         >
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-xl font-bold mb-2">Glencraig Primary School</h3>
-            <address className="mb-4 not-italic">123 School Lane, Glencraig, GC1 2AB</address>
-            <p className="text-sm">Created with 💖 by our Year 6 students (2025)</p>
+            <address className="mb-4 not-italic">
+              , Seahill</address>
+            <p className="text-sm">Created with 💖 by our  P7students (2025)</p>
           </div>
         </footer>
       </div>
