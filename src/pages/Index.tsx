@@ -1,90 +1,155 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { HouseAssignment } from "@/components/HouseAssignment";
 import { SchoolInfo } from "@/components/SchoolInfo";
 import { StudentTestimonials } from "@/components/StudentTestimonials";
+import { HOUSES_ARRAY, THEME_COLORS } from "@/lib/constants";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   const [showSortingHat, setShowSortingHat] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Set isLoaded to true after initial render to trigger animations
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#A7D9FF]">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <div className="bg-white rounded-3xl p-8 shadow-lg border-4 border-[#4B3B72] max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#4B3B72] animate-fade-in">
-                Welcome to Glencraig Primary School
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-[#6A5E80] max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                A special welcome guide from our Year 6 leavers to help you start your exciting journey with us!
-              </p>
-              <div className="space-y-4 md:space-y-0 md:space-x-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                <Button
-                  size="lg"
-                  className="bg-[#33C3F0] hover:bg-[#33C3F0]/90 text-white text-lg rounded-full px-8"
-                  onClick={() => setShowSortingHat(true)}
+    <ErrorBoundary>
+      <div className="min-h-screen bg-[#A7D9FF]">
+        {/* SEO Metadata */}
+        <Helmet>
+          <title>Welcome to Glencraig Primary School</title>
+          <meta name="description" content="A special welcome guide from our Year 6 leavers to help you start your exciting journey with Glencraig Primary School!" />
+          <meta property="og:title" content="Welcome to Glencraig Primary School" />
+          <meta property="og:description" content="A special welcome guide created by our Year 6 students" />
+          <meta property="og:type" content="website" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="theme-color" content="#A7D9FF" />
+        </Helmet>
+
+        {/* Hero Section */}
+        <section 
+          className="relative py-12 sm:py-20 px-4 md:px-8"
+          aria-labelledby="welcome-heading"
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border-4 border-[#4B3B72] max-w-4xl mx-auto">
+                <h1 
+                  id="welcome-heading"
+                  className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-[#4B3B72] ${isLoaded ? 'animate-fade-in' : ''}`}
                 >
-                  Try the Sorting Hat!
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-[#4B3B72] text-[#4B3B72] hover:bg-[#4B3B72]/10 text-lg ml-0 md:ml-4 mt-4 md:mt-0 rounded-full px-8"
-                  onClick={() => {
-                    const element = document.getElementById("school-info");
-                    element?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  Welcome to Glencraig Primary School
+                </h1>
+                <p 
+                  className={`text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-[#6A5E80] max-w-3xl mx-auto ${isLoaded ? 'animate-fade-in' : ''}`} 
+                  style={{ animationDelay: "0.2s" }}
                 >
-                  Learn More About Our School
-                </Button>
+                  A special welcome guide from our Year 6 leavers to help you start your exciting journey with us!
+                </p>
+                <div 
+                  className={`flex flex-col sm:flex-row justify-center items-center gap-4 ${isLoaded ? 'animate-fade-in' : ''}`} 
+                  style={{ animationDelay: "0.4s" }}
+                >
+                  <Button
+                    size="lg"
+                    className={`${HOUSES_ARRAY[0].color} ${HOUSES_ARRAY[0].hoverColor} text-white text-lg rounded-full px-8 w-full sm:w-auto`}
+                    onClick={() => setShowSortingHat(true)}
+                    aria-label="Open the sorting hat dialog"
+                  >
+                    Try the Sorting Hat!
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className={`border-[${THEME_COLORS.primary}] text-[${THEME_COLORS.primary}] hover:bg-[${THEME_COLORS.primary}]/10 text-lg rounded-full px-8 w-full sm:w-auto`}
+                    onClick={() => scrollToSection("school-info")}
+                    aria-label="Scroll to school information section"
+                  >
+                    Learn More About Our School
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Sorting Hat Dialog */}
-      <Dialog open={showSortingHat} onOpenChange={setShowSortingHat}>
-        <DialogContent className="sm:max-w-md rounded-3xl border-4 border-[#4B3B72]">
-          <DialogHeader>
-            <DialogTitle className="text-[#4B3B72] text-2xl">The Glencraig Sorting Hat</DialogTitle>
-            <DialogDescription className="text-[#6A5E80]">
-              Let our magical sorting hat assign you to one of our school houses!
-            </DialogDescription>
-          </DialogHeader>
-          <HouseAssignment onClose={() => setShowSortingHat(false)} />
-        </DialogContent>
-      </Dialog>
+        {/* Sorting Hat Dialog */}
+        <Dialog 
+          open={showSortingHat} 
+          onOpenChange={setShowSortingHat}
+          aria-labelledby="sorting-hat-title"
+          aria-describedby="sorting-hat-description"
+        >
+          <DialogContent className="sm:max-w-md rounded-3xl border-4 border-[#4B3B72]">
+            <DialogHeader>
+              <DialogTitle id="sorting-hat-title" className="text-[#4B3B72] text-2xl">The Glencraig Sorting Hat</DialogTitle>
+              <DialogDescription id="sorting-hat-description" className="text-[#6A5E80]">
+                Let our magical sorting hat assign you to one of our school houses!
+              </DialogDescription>
+            </DialogHeader>
+            <HouseAssignment onClose={() => setShowSortingHat(false)} />
+          </DialogContent>
+        </Dialog>
 
-      {/* School Information Section */}
-      <section id="school-info" className="py-16 px-4 md:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#4B3B72]">Our School Through Our Eyes</h2>
-          <SchoolInfo />
-        </div>
-      </section>
+        {/* School Information Section */}
+        <section 
+          id="school-info" 
+          className="py-12 sm:py-16 px-4 md:px-8 bg-white"
+          aria-labelledby="school-info-heading"
+        >
+          <div className="max-w-7xl mx-auto">
+            <h2 
+              id="school-info-heading"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-[#4B3B72]"
+            >
+              Our School Through Our Eyes
+            </h2>
+            <SchoolInfo />
+          </div>
+        </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 md:px-8 bg-[#E5DEFF]/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#4B3B72]">What Year 6 Students Say</h2>
-          <StudentTestimonials />
-        </div>
-      </section>
+        {/* Testimonials Section */}
+        <section 
+          className="py-12 sm:py-16 px-4 md:px-8 bg-[#E5DEFF]/50"
+          aria-labelledby="testimonials-heading"
+        >
+          <div className="max-w-7xl mx-auto">
+            <h2 
+              id="testimonials-heading"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-[#4B3B72]"
+            >
+              What Year 6 Students Say
+            </h2>
+            <StudentTestimonials />
+          </div>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-[#4B3B72] text-white py-8 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-xl font-bold mb-2">Glencraig Primary School</h3>
-          <p className="mb-4">123 School Lane, Glencraig, GC1 2AB</p>
-          <p className="text-sm">Created with 💖 by our Year 6 students (2025)</p>
-        </div>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer 
+          className="bg-[#4B3B72] text-white py-8 px-4 md:px-8"
+          role="contentinfo"
+        >
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-xl font-bold mb-2">Glencraig Primary School</h3>
+            <address className="mb-4 not-italic">123 School Lane, Glencraig, GC1 2AB</address>
+            <p className="text-sm">Created with 💖 by our Year 6 students (2025)</p>
+          </div>
+        </footer>
+      </div>
+    </ErrorBoundary>
   );
 };
 

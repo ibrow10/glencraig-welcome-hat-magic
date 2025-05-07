@@ -1,7 +1,16 @@
 
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { HOUSES, THEME_COLORS } from "@/lib/constants";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
-const testimonials = [
+interface Testimonial {
+  name: string;
+  house: keyof typeof HOUSES;
+  quote: string;
+  avatar: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     name: "Emma, Age 11",
     house: "Eagles",
@@ -30,35 +39,46 @@ const testimonials = [
 
 export const StudentTestimonials = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {testimonials.map((testimonial, index) => (
-        <Card key={index} className="hover:shadow-lg transition-shadow border-2 rounded-3xl bg-white">
-          <CardHeader className="pb-2">
-            <div className="flex items-center space-x-4">
-              <img 
-                src={testimonial.avatar} 
-                alt={testimonial.name} 
-                className="rounded-full w-12 h-12 object-cover border-2 border-[#4B3B72]"
-              />
-              <div>
-                <h4 className="font-bold text-[#4B3B72]">{testimonial.name}</h4>
-                <span className="text-sm text-[#6A5E80]">{testimonial.house} House</span>
+    <ErrorBoundary>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {testimonials.map((testimonial, index) => (
+          <Card 
+            key={index} 
+            className="hover:shadow-lg transition-shadow border-2 rounded-3xl bg-white focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-white focus-within:ring-[#4B3B72]"
+          >
+            <CardHeader className="pb-2">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-4">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={`Portrait of ${testimonial.name}`} 
+                  className="rounded-full w-16 h-16 sm:w-12 sm:h-12 object-cover border-2 border-[#4B3B72]"
+                  loading="lazy"
+                />
+                <div className="text-center sm:text-left">
+                  <h4 className="font-bold text-[#4B3B72]" id={`testimonial-${index}-name`}>{testimonial.name}</h4>
+                  <span 
+                    className={`text-sm ${HOUSES[testimonial.house].textColor}`}
+                    aria-describedby={`testimonial-${index}-name`}
+                  >
+                    {testimonial.house} House
+                  </span>
+                </div>
               </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="italic text-[#6A5E80]">"{testimonial.quote}"</p>
-          </CardContent>
-          <CardFooter className="pt-0">
-            <div className={`w-full h-1 rounded-full ${
-              testimonial.house === "Eagles" ? "bg-[#33C3F0]" :
-              testimonial.house === "Falcons" ? "bg-[#ea384c]" :
-              testimonial.house === "Hawks" ? "bg-[#4CAF50]" :
-              "bg-[#FFD700]"
-            }`}></div>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
+            </CardHeader>
+            <CardContent>
+              <blockquote>
+                <p className="italic text-[#6A5E80]">"{testimonial.quote}"</p>
+              </blockquote>
+            </CardContent>
+            <CardFooter className="pt-0">
+              <div 
+                className={`w-full h-1 rounded-full ${HOUSES[testimonial.house].color}`}
+                aria-hidden="true"
+              ></div>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </ErrorBoundary>
   );
 };
