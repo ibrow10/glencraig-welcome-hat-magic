@@ -31,13 +31,17 @@ const queryClient = new QueryClient({
   },
 });
 
+// Get the base URL from Vite environment
+const baseUrl = import.meta.env.BASE_URL;
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        {/* Use the correct base URL for GitHub Pages */}
+        <BrowserRouter basename={baseUrl}>
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
