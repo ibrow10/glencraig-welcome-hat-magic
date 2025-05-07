@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Glencraig Primary School Welcome Guide
 
-## Project info
+![Glencraig Primary School](https://images.unsplash.com/photo-1537815749002-de6a533c64db?auto=format&fit=crop&w=300&h=300)
 
-**URL**: https://lovable.dev/projects/cd6a4545-249e-4cae-aacc-ed7adaf6d20c
+## Overview
 
-## How can I edit this code?
+This project is an interactive welcome guide for Glencraig Primary School, designed to help new students feel comfortable and excited about joining the school. Created with input from Year 6 students, this guide provides a friendly introduction to school life through the eyes of current students.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Interactive Sorting Hat**: A fun feature inspired by Harry Potter that assigns new students to one of four school houses (Eagles, Falcons, Hawks, or Owls)
+- **School Information**: Key details about classes, friends, houses, and activities at the school
+- **Student Testimonials**: Real quotes from Year 6 students about their experiences
+- **Responsive Design**: Works well on all devices from mobile phones to desktop computers
+- **Accessibility**: Designed to be usable by all students, including those with disabilities
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cd6a4545-249e-4cae-aacc-ed7adaf6d20c) and start prompting.
+## Technical Details
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built with modern web technologies:
 
-**Use your preferred IDE**
+- **React**: For building the user interface
+- **TypeScript**: For type safety and better code quality
+- **Vite**: As the build tool for fast development
+- **Tailwind CSS**: For styling
+- **shadcn-ui**: For UI components
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js (v16 or newer)
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+# Clone the repository
+git clone https://github.com/ibrow10/glencraig-welcome-hat-magic.git
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Navigate to the project directory
+cd glencraig-welcome-hat-magic
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at http://localhost:8080
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Building for Production
 
-**Use GitHub Codespaces**
+```bash
+# Create a production build
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview the production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+## Deployment Options
 
-This project is built with:
+This application can be deployed to various hosting platforms:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Netlify**: Easy deployment with continuous integration
+- **Vercel**: Great for React applications with preview deployments
+- **GitHub Pages**: Free hosting for static sites
+- **Firebase Hosting**: Google's hosting solution with additional services
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/cd6a4545-249e-4cae-aacc-ed7adaf6d20c) and click on Share -> Publish.
+```
+├── public/              # Static assets
+├── src/                 # Source files
+│   ├── components/      # React components
+│   ├── lib/             # Utility functions and constants
+│   ├── pages/           # Page components
+│   ├── App.tsx          # Main application component
+│   └── main.tsx         # Application entry point
+├── index.html           # HTML template
+├── package.json         # Project dependencies and scripts
+└── README.md            # Project documentation
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Accessibility Features
 
-Yes, you can!
+This project includes several accessibility enhancements:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Proper ARIA attributes for interactive elements
+- Keyboard navigation support
+- Semantic HTML structure
+- Sufficient color contrast for text elements
+- Screen reader friendly content
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+
+This project is available for educational purposes. Feel free to use it as a template for your own school welcome guide.
