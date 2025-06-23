@@ -1,3 +1,4 @@
+
 import { Suspense, lazy } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -31,8 +32,13 @@ const queryClient = new QueryClient({
   },
 });
 
-// Get the base URL from Vite environment
-const baseUrl = import.meta.env.BASE_URL;
+// Only use basename in production builds
+const getBasename = () => {
+  if (import.meta.env.MODE === 'production') {
+    return import.meta.env.BASE_URL;
+  }
+  return '/';
+};
 
 const App = () => (
   <ErrorBoundary>
@@ -40,8 +46,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {/* Use the correct base URL for GitHub Pages */}
-        <BrowserRouter basename={baseUrl}>
+        <BrowserRouter basename={getBasename()}>
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
