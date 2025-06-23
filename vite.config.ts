@@ -6,8 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Set correct base path for GitHub Pages deployment
-  base: mode === 'production' ? "/glencraig-welcome-hat-magic/" : "/",
+  // Use root path for Lovable hosting
+  base: "/",
   
   server: {
     host: "::",
@@ -23,11 +23,9 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Standard assets directory
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        // Standard asset naming for GitHub Pages
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',

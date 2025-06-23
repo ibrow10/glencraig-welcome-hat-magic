@@ -38,7 +38,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/glencraig-welcome-hat-magic/">
+        <BrowserRouter basename="/">
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
