@@ -32,11 +32,13 @@ const queryClient = new QueryClient({
   },
 });
 
-// Only use basename in production builds
+// Get basename from environment
 const getBasename = () => {
-  if (import.meta.env.MODE === 'production') {
+  // In production, use the base URL from Vite config
+  if (import.meta.env.PROD) {
     return import.meta.env.BASE_URL;
   }
+  // In development, use root
   return '/';
 };
 
