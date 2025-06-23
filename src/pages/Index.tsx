@@ -88,7 +88,7 @@ const Index = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white/30 text-white hover:bg-white/10 text-xl rounded-xl px-10 py-4 w-full sm:w-auto shadow-2xl backdrop-blur-sm"
+                  className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white text-xl rounded-xl px-10 py-4 w-full sm:w-auto shadow-2xl"
                   onClick={() => scrollToSection("school-info")}
                   aria-label="Scroll to school information section"
                 >
