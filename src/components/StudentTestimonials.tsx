@@ -40,24 +40,24 @@ const testimonials: Testimonial[] = [
 export const StudentTestimonials = () => {
   return (
     <ErrorBoundary>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {testimonials.map((testimonial, index) => (
           <Card 
             key={index} 
-            className="hover:shadow-lg transition-shadow border-2 rounded-3xl bg-white focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-white focus-within:ring-[#4B3B72]"
+            className="hover:shadow-2xl transition-all duration-300 border border-gray-600 rounded-2xl bg-gray-900/80 backdrop-blur-sm hover:bg-gray-800/90 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-700 focus-within:ring-emerald-500"
           >
-            <CardHeader className="pb-2">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-4">
+            <CardHeader className="pb-4">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
                 <img 
                   src={testimonial.avatar} 
                   alt={`Portrait of ${testimonial.name}`} 
-                  className="rounded-full w-16 h-16 sm:w-12 sm:h-12 object-cover border-2 border-[#4B3B72]"
+                  className="rounded-full w-20 h-20 sm:w-16 sm:h-16 object-cover border-3 border-gray-600 shadow-lg"
                   loading="lazy"
                 />
                 <div className="text-center sm:text-left">
-                  <h4 className="font-bold text-[#4B3B72]" id={`testimonial-${index}-name`}>{testimonial.name}</h4>
+                  <h4 className="font-bold text-white text-lg" id={`testimonial-${index}-name`}>{testimonial.name}</h4>
                   <span 
-                    className={`text-sm ${HOUSES[testimonial.house].textColor}`}
+                    className={`text-sm ${HOUSES[testimonial.house].textColor} font-medium`}
                     aria-describedby={`testimonial-${index}-name`}
                   >
                     {testimonial.house} House
@@ -67,12 +67,12 @@ export const StudentTestimonials = () => {
             </CardHeader>
             <CardContent>
               <blockquote>
-                <p className="italic text-[#6A5E80]">"{testimonial.quote}"</p>
+                <p className="italic text-gray-300 text-lg leading-relaxed">"{testimonial.quote}"</p>
               </blockquote>
             </CardContent>
-            <CardFooter className="pt-0">
+            <CardFooter className="pt-4">
               <div 
-                className={`w-full h-1 rounded-full ${HOUSES[testimonial.house].color}`}
+                className={`w-full h-1.5 rounded-full ${HOUSES[testimonial.house].color} shadow-lg`}
                 aria-hidden="true"
               ></div>
             </CardFooter>

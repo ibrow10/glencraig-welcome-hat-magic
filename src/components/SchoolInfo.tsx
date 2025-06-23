@@ -41,20 +41,20 @@ const infoCards: InfoCard[] = [
 export const SchoolInfo = () => {
   return (
     <ErrorBoundary>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {infoCards.map((card, index) => (
           <Card 
             key={index} 
-            className="hover:shadow-lg transition-shadow border-2 rounded-3xl bg-white focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-white focus-within:ring-[#4B3B72]"
+            className="hover:shadow-2xl transition-all duration-300 border border-gray-600 rounded-2xl bg-gray-900/80 backdrop-blur-sm hover:bg-gray-800/90 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-800 focus-within:ring-emerald-500"
           >
-            <CardHeader className="flex flex-row items-center space-x-4">
-              <div className={`${card.iconColor} p-2 rounded-full`}>
+            <CardHeader className="flex flex-row items-center space-x-6 pb-4">
+              <div className={`${card.iconColor} p-3 rounded-xl shadow-lg`}>
                 {card.icon}
               </div>
-              <CardTitle className={`text-${THEME_COLORS.primary} font-bold`}>{card.title}</CardTitle>
+              <CardTitle className="text-white font-bold text-xl">{card.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={`text-${THEME_COLORS.secondary}`}>{card.description}</p>
+              <p className="text-gray-300 text-lg leading-relaxed">{card.description}</p>
             </CardContent>
           </Card>
         ))}
