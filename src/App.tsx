@@ -32,23 +32,13 @@ const queryClient = new QueryClient({
   },
 });
 
-// Get basename from environment
-const getBasename = () => {
-  // In production, use the base URL from Vite config
-  if (import.meta.env.PROD) {
-    return import.meta.env.BASE_URL;
-  }
-  // In development, use root
-  return '/';
-};
-
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={getBasename()}>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />

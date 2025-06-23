@@ -22,4 +22,16 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Ensure assets are built with correct paths
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        // Ensure consistent naming for assets
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      },
+    },
+  },
 }));
