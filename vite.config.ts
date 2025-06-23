@@ -6,8 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Only use base path in production for GitHub Pages
-  base: mode === 'production' ? "/glencraig-welcome-hat-magic/" : "/",
+  // Use relative base path for production
+  base: mode === 'production' ? "./" : "/",
   
   server: {
     host: "::",
@@ -23,11 +23,11 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Ensure assets are built with correct paths
+    // Ensure assets are built with correct relative paths
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        // Ensure consistent naming for assets
+        // Ensure consistent naming for assets with relative paths
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
