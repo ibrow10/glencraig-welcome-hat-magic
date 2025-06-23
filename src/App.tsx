@@ -38,7 +38,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={import.meta.env.PROD ? "/glencraig-welcome-hat-magic/" : "/"}>
+        <BrowserRouter basename="/glencraig-welcome-hat-magic/">
           <Suspense fallback={<PageLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
