@@ -13,25 +13,25 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: "Mabel, P7",
-    house: "Eagles",
+    house: "Sharks",
     quote: "My favorite thing about Glencraig is the science club where we did cool experiments like making volcanoes erupt! The teachers make learning really fun.",
     avatar: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?auto=format&fit=crop&w=100&h=100",
   },
   {
     name: "Harriet, P7",
-    house: "Falcons",
+    house: "Foxes",
     quote: "I was nervous on my first day, but everyone was really friendly. I love our school trips - last year we went to the dinosaur museum!",
     avatar: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=100&h=100",
   },
   {
     name: "Heath, P7",
-    house: "Hawks",
+    house: "Snakes",
     quote: "The art room is my favorite place in the school. We get to paint, make clay models and even did a big mural for the entrance hall!",
     avatar: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?auto=format&fit=crop&w=100&h=100",
   },
   {
     name: "Zac, P7",
-    house: "Owls",
+    house: "YellowHammers",
     quote: "When I started, I didn't know anyone, but now I have so many friends. The playground is awesome with a big climbing frame and football pitches.",
     avatar: "https://images.unsplash.com/photo-1501286353178-1ec881214838?auto=format&fit=crop&w=100&h=100",
   },
