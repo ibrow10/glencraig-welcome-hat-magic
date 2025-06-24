@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { BookOpen, Users, House, CircleCheck } from "lucide-react";
@@ -20,7 +19,7 @@ const infoCards: InfoCard[] = [
     icon: <BookOpen className="h-10 w-10" />,
     iconColor: HOUSES.Sharks.color,
     description: "We have small classes with friendly teachers who make learning fun! Every classroom has a reading corner and lots of art on the walls.",
-    detailedContent: "Welcome to our amazing school! Our classrooms are bright and colorful, filled with student artwork and cozy reading nooks. Each class has only 25 students, so teachers can give everyone special attention. We have a fantastic library with thousands of books, a computer lab with the latest technology, and science labs where we do exciting experiments. Our playground has climbing frames, football pitches, and quiet areas for reading. The school garden lets us grow our own vegetables, and we even have chickens! Every corridor displays our creative work, making the whole school feel like an art gallery."
+    detailedContent: "Welcome to our amazing school! Our classrooms are bright and colorful, filled with student artwork and cozy reading nooks. Each class has only 25 students, so teachers can give everyone special attention. We have a fantastic library with thousands of books, a computer lab with the latest technology, and science labs where we do exciting experiments. Our playground has climbing frames, football pitches, and quiet areas for reading. The school garden lets us grow our own vegetables, and we even have chickens! Every corridor displays our creative work, making the whole school feel like an art gallery. Our fun caretaker Mr Eaton always has a smile and a friendly wave - he knows every student's name and makes sure our school is always sparkling clean and safe! We also have special listening teachers who are there whenever you need someone to talk to, whether you're feeling worried, excited, or just need a friend. Our buddy system will make you feel safe and welcome from your very first day - older students look out for you, help you find your way around, and make sure you never feel alone. It's like having an instant big brother or sister who cares about you!"
   },
   {
     title: "Our Buddies",
