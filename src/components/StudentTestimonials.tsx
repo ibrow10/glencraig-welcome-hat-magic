@@ -14,7 +14,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Mabel, P7",
     house: "Sharks",
-    quote: "My favorite thing about Glencraig is the science club where we did cool experiments like making volcanoes erupt! The teachers make learning really fun.",
+    quote: "I would like to reassure you that there will always be someone to talk to on the firs day. If you want to talk to someone, just Ask. They will always help",
     avatar: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?auto=format&fit=crop&w=100&h=100",
   },
   {
