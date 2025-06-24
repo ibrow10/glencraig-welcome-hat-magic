@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Zac, P7",
     house: "YellowHammers",
-    quote: "When I started, I didn't know anyone, but now I have so many friends. The playground is awesome with a big climbing frame and football pitches.",
+    quote: "When I started I didnt know anyone, the teachers are very nice and don't be worried if the seem strict. I have met most of my best friends at Glencraig",
     avatar: "https://images.unsplash.com/photo-1501286353178-1ec881214838?auto=format&fit=crop&w=100&h=100",
   },
 ];
