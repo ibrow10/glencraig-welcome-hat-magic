@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +14,7 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
   const [sorted, setSorted] = useState(false);
   const [selectedHouse, setSelectedHouse] = useState<typeof HOUSES_ARRAY[0] | null>(null);
   const [count, setCount] = useState(0);
+  const [dogImage, setDogImage] = useState("https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&h=300");
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const finalHouseRef = useRef<typeof HOUSES_ARRAY[0] | null>(null);
 
@@ -27,10 +27,26 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
     };
   }, []);
 
+  const fetchRandomDogImage = async () => {
+    try {
+      const response = await fetch('https://dog.ceo/api/breeds/image/random');
+      const data = await response.json();
+      if (data.status === 'success') {
+        setDogImage(data.message);
+      }
+    } catch (error) {
+      console.log('Failed to fetch dog image, using default');
+      // Keep the existing image if fetch fails
+    }
+  };
+
   const startSorting = useCallback(() => {
     setSorting(true);
     setCount(0);
     setSelectedHouse(null);
+    
+    // Fetch a new random dog image
+    fetchRandomDogImage();
     
     // Pre-determine the final house before animation starts
     const finalHouseIndex = Math.floor(Math.random() * HOUSES_ARRAY.length);
@@ -81,7 +97,7 @@ export const HouseAssignment = ({ onClose }: HouseAssignmentProps) => {
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur-lg opacity-50"></div>
               <img 
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&h=300" 
+                src={dogImage}
                 alt="Sorting Dog - A magical dog that will assign you to a school house" 
                 className="relative w-32 h-32 object-cover rounded-full animate-bounce border-4 border-purple-400 shadow-2xl"
                 loading="lazy"
