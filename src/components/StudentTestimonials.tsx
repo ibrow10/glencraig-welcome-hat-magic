@@ -26,7 +26,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Heath, P7",
     house: "Snakes",
-    quote: "The art room is my favorite place in the school. We get to paint, make clay models and even did a big mural for the entrance hall!",
+    quote: "Don't walk backwards into school, you will bang your head.  The pitch and play equipment, the playgound is super fun. You will enjoy every day",
     avatar: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?auto=format&fit=crop&w=100&h=100",
   },
   {
