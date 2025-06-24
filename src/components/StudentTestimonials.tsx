@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
   {
     name: "Harriet, P7",
     house: "Foxes",
-    quote: "I was nervous on my first day, but everyone was really friendly. I love our school trips - last year we went to the dinosaur museum!",
+    quote: "Don't be worried if you think the schoool is very big compared to nursery, you will soon find your way round",
     avatar: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=100&h=100",
   },
   {
